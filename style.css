@@ -13,31 +13,22 @@ header { border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1
 h1 { margin: 0; }
 a { color: #0366d6; text-decoration: none; }
 
-/* ===== 見出しの下に線を入れるスタイル ===== */
-/* シンプルな方法：見出し自体に border-bottom を付ける */
-h2 {
-  font-size: 1.25rem;
-  margin: 0 0 0.75rem 0;     /* 見出しの下の余白を確保 */
-  padding-bottom: 0.35rem;   /* ボーダーと本文の間隔 */
-  border-bottom: 2px solid #eee; /* 線の色/太さ */
+/* Left title, right extending divider */
+.section-title-with-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
-
-/* 代替：装飾的な線を短く・中央寄せで表示したい場合（コメント解除して使う）
-h2 {
-  position: relative;
-  padding-bottom: 0.75rem;
-  margin-bottom: 1rem;
-}
-h2::after {
+/* .section-title-with-divider > *:first-child {
+  タイトルそのもの（例 h2）には追加スタイル不要
+} */
+.section-title-with-divider::after {
   content: "";
-  display: block;
-  width: 40px;           / * 線の長さ * /
-  height: 3px;           / * 線の太さ * /
-  background: #0366d6;   / * 線の色 * /
-  margin: 0.5rem 0 0 0;  / * 見出し下の余白調整 * /
-  border-radius: 2px;
+  flex: 1;                        /* 右側へ伸ばす */
+  height: 1px;
+  background: var(--divider, #ddd);
 }
-*/
 
 /* セクション間の余白調整（必要なら調整） */
 section { margin-bottom: 1.25rem; }
+
