@@ -13,20 +13,26 @@ header { border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1
 h1 { margin: 0; }
 a { color: #0366d6; text-decoration: none; }
 
-/* Left title, right extending divider */
-.section-title-with-divider {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+/* 汎用：section 内の h2/h3 の下に細いボーダーを引く（シンプル） */
+section :is(h2, h3) {
+  padding-bottom: 0.35rem;       /* 見出しと線の余白（微調整可） */
+  margin-bottom: 1rem;           /* 線と本文の間隔 */
+  border-bottom: 1px solid rgba(0,0,0,0.08);
 }
-/* .section-title-with-divider > *:first-child {
-  タイトルそのもの（例 h2）には追加スタイル不要
-} */
-.section-title-with-divider::after {
+
+/* 擬似要素で線の表示を細かく制御したい場合 */
+section :is(h1, h2, h3) {
+  position: relative;
+  padding-bottom: 0.25rem;
+  margin-bottom: 1rem;
+}
+section :is(h1, h2, h3)::after {
   content: "";
-  flex: 1;                        /* 右側へ伸ばす */
-  height: 1px;
-  background: var(--divider, #ddd);
+  display: block;
+  height: 1px;                    /* 線の太さ */
+  width: 100%;                    /* 見出しブロック幅いっぱい */
+  margin-top: 0.6rem;             /* 見出しテキストと線の距離 */
+  background: var(--divider, #e6e6e6);
 }
 
 /* セクション間の余白調整（必要なら調整） */
