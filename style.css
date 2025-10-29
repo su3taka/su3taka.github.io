@@ -21,7 +21,7 @@ section :is(h2, h3) {
 }
 
 /* 擬似要素で線の表示を細かく制御したい場合 */
-section :is(h1, h2, h3) {
+/* section :is(h1, h2, h3) {
   position: relative;
   padding-bottom: 0.25rem;
   margin-bottom: 1rem;
@@ -29,11 +29,11 @@ section :is(h1, h2, h3) {
 section :is(h1, h2, h3)::after {
   content: "";
   display: block;
-  height: 1px;                    /* 線の太さ */
-  width: 100%;                    /* 見出しブロック幅いっぱい */
-  margin-top: 0.6rem;             /* 見出しテキストと線の距離 */
+  height: 1px;                    
+  width: 100%;                    
+  margin-top: 0.6rem;             
   background: var(--divider, #e6e6e6);
-}
+} */
 
 /* セクション間の余白調整（必要なら調整） */
 section { margin-bottom: 1.25rem; }
