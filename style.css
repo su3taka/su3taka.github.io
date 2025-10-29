@@ -17,7 +17,7 @@ a { color: #0366d6; text-decoration: none; }
 section :is(h2, h3) {
   padding-bottom: 0.35rem;       /* 見出しと線の余白（微調整可） */
   margin-bottom: 1rem;           /* 線と本文の間隔 */
-  border-bottom: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 3px solid rgb(0, 0, 0);
 }
 
 /* 擬似要素で線の表示を細かく制御したい場合 */
