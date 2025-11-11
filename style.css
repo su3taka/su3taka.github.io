@@ -38,3 +38,72 @@ section :is(h1, h2, h3)::after {
 /* セクション間の余白調整（必要なら調整） */
 section { margin-bottom: 1.25rem; }
 
+/* Recent activities list: collapsed/expanded */
+.recent-activities {
+  margin: 2rem 0;
+}
+
+/* 見出しパターンがある場合はそのまま利用 */
+.section-title-with-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.section-title-with-divider > span {
+  margin: 0;
+  font-weight: 600;
+}
+.section-title-with-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--divider, #ddd);
+}
+
+/* リスト */
+.recent-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.75rem 0 1rem 0;
+}
+.recent-list li {
+  padding: 0.45rem 0;
+  border-bottom: 1px dashed rgba(0,0,0,0.05);
+  color: var(--text, #333);
+  font-size: 0.98rem;
+}
+
+/* collapsed クラスが付いていると6件目以降を非表示にする（data-show の値に合わせて JS が制御） */
+.recent-list.collapsed li {
+  display: none;
+}
+.recent-list.collapsed li:nth-child(-n+5) {
+  display: list-item;
+}
+
+/* トグルボタン */
+.recent-toggle {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: 0.45rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: var(--muted, #333);
+}
+.recent-toggle:hover,
+.recent-toggle:focus {
+  background: rgba(0,0,0,0.02);
+  outline: none;
+}
+
+/* small screens: 少しコンパクトに */
+@media (max-width: 480px) {
+  .recent-list li {
+    font-size: 0.95rem;
+  }
+  .recent-toggle {
+    padding: 0.4rem 0.6rem;
+  }
+}
